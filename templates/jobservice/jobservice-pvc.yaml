@@ -6,7 +6,7 @@ metadata:
   name: {{ template "harbor.jobservice" . }}
   {{- if eq .Values.persistence.resourcePolicy "keep" }}
   annotations:
-  {{- range $key, $value := $jobservice.accessMode }}
+  {{- range $key, $value := $jobservice.annotations }}
     {{ $key }}: {{ $value | quote }}
   {{- end }}
   {{- if eq .Values.persistence.resourcePolicy "keep" }}

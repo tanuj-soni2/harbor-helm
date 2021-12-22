@@ -141,7 +141,7 @@ spec:
       labels:
 {{ include "harbor.labels" . | indent 8 }}
       annotations:
-      {{- range $key, $value := $chartmuseum.accessMode }}
+      {{- range $key, $value := $chartmuseum.annotations }}
         {{ $key }}: {{ $value | quote }}
       {{- end }}
     spec:

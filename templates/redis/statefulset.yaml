@@ -90,7 +90,7 @@ spec:
       labels:
 {{ include "harbor.labels" . | indent 8 }}
       annotations:
-      {{- range $key, $value := $redis.accessMode }}
+      {{- range $key, $value := $redis.annotations }}
         {{ $key }}: {{ $value | quote }}
       {{- end }}
     spec:
