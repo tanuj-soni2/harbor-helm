@@ -6,6 +6,10 @@ metadata:
   name: {{ template "harbor.jobservice" . }}
   {{- if eq .Values.persistence.resourcePolicy "keep" }}
   annotations:
+  {{- range $key, $value := $jobservice.accessMode }}
+    {{ $key }}: {{ $value | quote }}
+  {{- end }}
+  {{- if eq .Values.persistence.resourcePolicy "keep" }}
     helm.sh/resource-policy: keep
   {{- end }}
   labels:
